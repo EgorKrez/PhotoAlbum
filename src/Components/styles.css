@@ -1,0 +1,37 @@
+.navbar {
+    height: 50px;
+    width: 100%;
+    background-color: lightblue;
+    display: flex;
+    justify-content: space-around;
+}
+.navbar-item-text {
+    text-decoration: none;
+    color: white;
+    line-height: 45px;
+}
+.navbar-item-text:hover {
+    cursor: pointer;
+}
+.top-panel {
+    height: 70px;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.button {
+    height: 40px;
+    width: 150px;
+    border-radius: 4px;
+    background-color: sandybrown;
+    border: 1px solid lightgray;
+    color: white;
+}
+.button:hover {
+    cursor: pointer;
+}
+.page-wrapper {
+    text-align: center;
+    margin-top: 50px;
+}
