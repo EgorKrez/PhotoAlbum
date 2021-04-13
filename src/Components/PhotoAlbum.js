@@ -1,15 +1,9 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import Photo from './Photo';
+import './style.css'
 
-const styles = {
-    ul: {
-        margin: "0 auto",
-        width: "604px",
-    }
-}
-
-function PhotoAlbum() {
+const PhotoAlbum = () => {
     const [photos, setPhotos] = useState([]);
 
     useEffect(() => {
@@ -21,7 +15,7 @@ function PhotoAlbum() {
     }, [])
 
     return (
-        <ul style={styles.ul}>
+        <ul className="ul">
             {photos.map((photo) => {
                 return <Photo photo={photo} key={photo.id} /> 
             })}
