@@ -3,10 +3,7 @@ import PhotoAlbum from './Components/PhotoAlbum';
 
 function App() {
   return (
-    <div>
-    <PhotoAlbum />
-    </div>
-    
+    <PhotoAlbum />    
   );
 }
 
