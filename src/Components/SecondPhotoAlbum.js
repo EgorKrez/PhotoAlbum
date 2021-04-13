@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react'
 import Photo from './Photo';
 import './style.css'
 
-const PhotoAlbum = () => {
+const SecondPhotoAlbum = () => {
     const [photos, setPhotos] = useState([]);
 
     useEffect(() => {
@@ -16,7 +16,7 @@ const PhotoAlbum = () => {
 
     return (
         <ul className="ul">
-            <h1>First page!</h1>
+            <h1>Second page!</h1>
             <div className="top-panel">
                 <button className="button">Add</button>
                 <button className="button">Remove</button>
@@ -28,4 +28,4 @@ const PhotoAlbum = () => {
     );
 }
 
-export default PhotoAlbum
+export default SecondPhotoAlbum

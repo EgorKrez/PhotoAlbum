@@ -1,6 +1,24 @@
 .ul {
     margin: 0 auto;
     width: 600px;
+    text-align: center;
+}
+.top-panel {
+    height: 50px;
+    width: 600px;
+    border: 2px solid gray;
+    margin-top: 10px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+}
+.button {
+    height: 30px;
+    width: 90px;
+}
+.button:hover {
+    cursor: pointer;
 }
 .item {
     margin-top: 10px;
@@ -22,3 +40,23 @@
     text-align: center;
     float: left;
 }
+.navbar {
+    height: 50px;
+    width: 100%;
+    background-color: lightblue;
+    display: flex;
+    flex-direction: row;
+}
+.navbar-item {
+    height: 50px;
+    width: 100px;
+    border-right: 2px solid white;
+    text-align: center;
+    line-height: 45px;
+    color: white;
+    text-decoration: none;
+}
+.navbar-item:hover {
+    cursor: pointer;
+}
+
