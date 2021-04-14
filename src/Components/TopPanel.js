@@ -3,25 +3,74 @@ import './styles.css'
 import {createPost} from '../Redux/Actions'
 import { connect } from 'react-redux';
 
-const TopPanel = () => {
-    return (
-        <div className="top-panel">
-            <button className="button" onClick={addPost}>Add</button>
-            <button className="button">Remove</button>
-        </div>
-    );
-}
+class TopPanel extends React.Component {
+    constructor(props) {
+        super(props)
 
-const addPost = (event) => {
-    event.preventDefault()
+        this.state = {
+            title: ''
+        }
+      }
 
-    const title = 'say egor'
+    addPost = event => {
+        event.preventDefault()
 
-    const newPost = {
-        title, id: Date.now().toString()
+        const input = document.querySelector('#egor')
+
+        const title = input.value
+
+        if(title) {
+            const newPost = {
+                title, id: Date.now().toString()
+            }
+            this.props.createPost(newPost)  
+
+            input.value = ''
+        } else {
+            alert("Post cannot be empty!!!")
+        }
     }
 
-    console.log(createPost(newPost));    
+    removePost = event => {
+        event.preventDefault()
+
+        const input = document.querySelector('#egor')
+
+        const title = input.value
+
+        if(title) {
+            const remPost = {
+                title, id: Date.now().toString()
+            }
+            
+            this.props.removePost(remPost)  
+
+            input.value = ''
+        } else {
+            alert("Post cannot be empty!!!")
+        }
+    }
+
+    render() {
+        return (
+            <div className="top-panel">
+                <div className="form-panel">
+                    <form onSubmit={this.addPost}>
+                    <input 
+                    type="text"
+                    id="egor"
+                    />
+                    </form>
+                </div>
+                <div className="button-panel">
+                <button className="button" onClick={this.addPost}>Add</button>
+                <button className="button" onClick={this.removePost}>Remove</button>
+                </div>
+                
+                
+            </div>
+        );
+    }
 }
 
 const mapDispatchToProps = {
@@ -29,3 +78,4 @@ const mapDispatchToProps = {
 }
 
 export default connect(null, mapDispatchToProps) (TopPanel)
+

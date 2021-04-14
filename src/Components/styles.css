@@ -14,11 +14,30 @@
     cursor: pointer;
 }
 .top-panel {
-    height: 70px;
+    height: 150px;
+    width: 100%;
+}
+.form-panel {
+    height: 75px;
     width: 100%;
     display: flex;
     justify-content: space-around;
     align-items: center;
+}
+.button-panel {
+    height: 75px;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+form {
+    width: 100%;
+    padding-left: 265px;
+}
+input {
+    width: 75%;
+    height: 30px;
 }
 .button {
     height: 40px;

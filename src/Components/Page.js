@@ -5,10 +5,10 @@ const Page = ({posts ,title}) => {
             <div className="page-wrapper">
                 <div>{title}</div>
                 {
-                 (!posts.length) ? 
-                 <div>You have no posts</div> : 
-                 <ul>{posts.map(post => <div>{JSON.stringify(post)}</div>) }</ul>
-                 }
+                (!posts.length) ? 
+                <div>You have no posts</div> : 
+                <ul>{posts.map(post => <div>{post.title}</div>) }</ul>
+                }
             </div>
         );
 }

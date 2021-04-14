@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import Page, {mapStateToProps} from './Page'
 
 const FirstPage = ({syncPosts}) => {
-    return <Page posts={syncPosts} title={"First Page"} key={"1"}/>
+    return <Page posts={syncPosts} title={"First Page"}/>
 }
 
 export default connect(mapStateToProps, null)(FirstPage)
