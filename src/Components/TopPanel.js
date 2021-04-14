@@ -1,6 +1,6 @@
 import React from 'react'
 import './styles.css'
-import {createPost} from '../Redux/Actions'
+import { createPost, removePost } from '../Redux/Actions'
 import { connect } from 'react-redux';
 
 class TopPanel extends React.Component {
@@ -42,7 +42,9 @@ class TopPanel extends React.Component {
             const remPost = {
                 title, id: Date.now().toString()
             }
-            
+
+            console.log(this.props);
+
             this.props.removePost(remPost)  
 
             input.value = ''
@@ -74,7 +76,8 @@ class TopPanel extends React.Component {
 }
 
 const mapDispatchToProps = {
-    createPost
+    createPost,
+    removePost
 }
 
 export default connect(null, mapDispatchToProps) (TopPanel)
