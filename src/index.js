@@ -2,20 +2,18 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
-import logger from 'redux-logger'
 import reportWebVitals from './reportWebVitals';
-import { compose, createStore, applyMiddleware } from 'redux';
+import { compose, createStore } from 'redux';
 import {Provider} from 'react-redux'
 import { PersistGate } from 'redux-persist/integration/react';
 import { BrowserRouter } from 'react-router-dom';
 import persistStore from 'redux-persist/es/persistStore';
 import rootReducer from './Redux/rootReducer';
 
+
 const store = createStore(rootReducer, compose(
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 ))
-
-const middlewares =  [logger]
 
 const persistor = persistStore(store);
 

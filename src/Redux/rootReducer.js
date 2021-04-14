@@ -1,6 +1,6 @@
-import { combineReducers, createStore } from "redux";
+import { combineReducers } from "redux";
 import { postsReducer } from "./postsReducer";
-import { persistReducer, persistStore } from 'redux-persist'
+import { persistReducer } from 'redux-persist'
 import storage from 'redux-persist/lib/storage'
 //import persistStore from "redux-persist/es/persistStore";
 
@@ -15,8 +15,4 @@ const rootReducer = combineReducers({
 
 const persistedReducer = persistReducer([persistConfig, rootReducer])
 
-export default () => {
-    let store = createStore(persistedReducer)
-    let persistor = persistStore(store)
-    return {store, persistor}
-}
+export default persistedReducer
