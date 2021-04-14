@@ -13,6 +13,6 @@ const rootReducer = combineReducers({
     posts: postsReducer,
 })
 
-const persistedReducer = persistReducer([persistConfig, rootReducer])
+const persistedReducer = persistReducer(persistConfig, rootReducer)
 
 export default persistedReducer
