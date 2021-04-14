@@ -1,6 +1,7 @@
 import React from 'react'
 
-const Page = ({posts ,title}) => {
+const Page = ({posts, title}) => {
+    console.log(posts);
         return (
             <div className="page-wrapper">
                 <div>{title}</div>
