@@ -1,15 +1,5 @@
+import { createAction } from "redux-actions";
 import { CREATE_POST, REMOVE_POST } from "./Types";
 
-export function createPost(post) {
-    return {
-        type: CREATE_POST,
-        payload: post
-    }
-}
-
-export function removePost() {
-        return {
-        type: REMOVE_POST,
-        payload: ''
-    }
-}
+export const createPost = createAction(CREATE_POST)
+export const removePost = createAction(REMOVE_POST)

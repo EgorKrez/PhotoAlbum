@@ -7,7 +7,7 @@ const Page = ({posts, title}) => {
                 {
                 (!posts.length) ? 
                 <div>You have no posts</div> : 
-                <div><ul>{posts.map(post => <div>{post.title}</div>) }</ul></div>
+                <div><ul>{posts.map(post => <div key={post.id}>{post.title}</div>) }</ul></div>
                 
                 }
             </div>
