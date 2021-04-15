@@ -1,5 +1,5 @@
-import { CREATE_POST, REMOVE_POST } from "./Types"
-import {createPostReducer, removeAllPosts} from './Reducers'
+import { CREATE_POST, FETCH_POSTS, REMOVE_POST } from "./Types"
+import {createPostReducer, fetchPosts, removeAllPosts} from './Reducers'
 
 const initialState = {
     posts: [],
@@ -12,6 +12,8 @@ export const postsReducer = (state = initialState, action) => {
         return createPostReducer(state, action.payload)
         case REMOVE_POST:
         return removeAllPosts()
+        case FETCH_POSTS:
+        return fetchPosts(state)
         default: return state
     }
 }

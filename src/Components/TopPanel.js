@@ -1,6 +1,6 @@
 import React from 'react'
 import './styles.css'
-import { createPost, removePost } from '../Redux/Actions'
+import { createPost, removePost , fetchPosts} from '../Redux/Actions'
 import { connect } from 'react-redux';
 
 class TopPanel extends React.Component {
@@ -36,6 +36,11 @@ class TopPanel extends React.Component {
             this.props.removePost()  
     }
 
+    fetchPosts = event => {
+        this.props.fetchPosts()
+    }
+
+    
     render() {
         return (
             <div className="top-panel">
@@ -49,6 +54,7 @@ class TopPanel extends React.Component {
                 </div>
                 <div className="button-panel">
                 <button className="button" onClick={this.addPost}>Add</button>
+                <button className="button" onClick={this.fetchPosts}>Fetch</button>
                 <button className="button" onClick={this.removePost}>Remove All</button>
                 </div>       
             </div>
@@ -58,7 +64,8 @@ class TopPanel extends React.Component {
 
 const mapDispatchToProps = {
     createPost,
-    removePost
+    removePost,
+    fetchPosts,
 }
 
 export default connect(null, mapDispatchToProps) (TopPanel)

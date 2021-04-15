@@ -5,7 +5,7 @@ const Page = ({posts, title}) => {
             <div className="page-wrapper">
                 <div>{title}</div>
                 {
-                (!posts.length) ? 
+                (!posts) ? 
                 <div>You have no posts</div> : 
                 <div><ul>{posts.map(post => <div key={post.id}>{post.title}</div>) }</ul></div>
                 
