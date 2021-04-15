@@ -15,7 +15,7 @@ class TopPanel extends React.Component {
     addPost = event => {
         event.preventDefault()
 
-        const input = document.querySelector('#egor')
+        const input = document.querySelector('#input')
 
         const title = input.value
 
@@ -33,24 +33,7 @@ class TopPanel extends React.Component {
 
     removePost = event => {
         event.preventDefault()
-
-        const input = document.querySelector('#egor')
-
-        const title = input.value
-
-        if(title) {
-            const remPost = {
-                title, id: Date.now().toString()
-            }
-
-            console.log(this.props);
-
-            this.props.removePost(remPost)  
-
-            input.value = ''
-        } else {
-            alert("Post cannot be empty!!!")
-        }
+            this.props.removePost()  
     }
 
     render() {
@@ -60,16 +43,14 @@ class TopPanel extends React.Component {
                     <form onSubmit={this.addPost}>
                     <input 
                     type="text"
-                    id="egor"
+                    id="input"
                     />
                     </form>
                 </div>
                 <div className="button-panel">
                 <button className="button" onClick={this.addPost}>Add</button>
-                <button className="button" onClick={this.removePost}>Remove</button>
-                </div>
-                
-                
+                <button className="button" onClick={this.removePost}>Remove All</button>
+                </div>       
             </div>
         );
     }

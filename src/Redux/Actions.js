@@ -7,9 +7,9 @@ export function createPost(post) {
     }
 }
 
-export function removePost(post) {
+export function removePost() {
         return {
         type: REMOVE_POST,
-        payload: post
+        payload: ''
     }
 }
