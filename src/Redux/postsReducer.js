@@ -1,7 +1,7 @@
 import { CREATE_POST, FETCH_POSTS, REMOVE_POST } from "./Types"
 import {createPostReducer, fetchPosts, removeAllPosts} from './Reducers'
 
-const initialState = {
+export const initialState = {
     posts: [],
     fetchedPosts: []
 }
