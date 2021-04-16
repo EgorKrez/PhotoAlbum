@@ -10,8 +10,6 @@ const TopPanel = (props) => {
 
     const addPost = () => {
         const input = document.querySelector('#input')
-
-
         
         if(input.value) {
             const newPost = {
