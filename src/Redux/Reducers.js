@@ -3,7 +3,7 @@ export const createPostReducer = (state, payload) => {
 }
 
 export const removeAllPosts = () => {
-    return { posts: []} 
+    return { posts: [] } 
 }
 
 export const fetchPosts = (state, payload) => {

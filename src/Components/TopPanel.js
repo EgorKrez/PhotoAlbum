@@ -1,32 +1,23 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './styles.css'
 import { createPost, removePost , fetchPosts} from '../Redux/Actions'
 import { connect } from 'react-redux';
 import axios from 'axios';
 
 
-class TopPanel extends React.Component {
-    constructor(props) {
-        super(props)
+const TopPanel = (props) => {
+    const [counter, setCounter] = useState(1)
 
-        this.state = {
-            title: '',
-            counter: 1,
-        }
-      }
-
-    addPost = event => {
-        event.preventDefault()
-
+    const addPost = () => {
         const input = document.querySelector('#input')
 
-        const title = input.value
 
-        if(title) {
+        
+        if(input.value) {
             const newPost = {
-                title, id: Date.now().toString()
+                title: input.value, id: Date.now().toString()
             }
-            this.props.createPost(newPost)  
+            props.createPost(newPost)  
 
             input.value = ''
         } else {
@@ -34,44 +25,41 @@ class TopPanel extends React.Component {
         }
     }
 
-    removePost = event => {
-        event.preventDefault()
-            this.props.removePost()  
+    const removePost = () => {
+            props.removePost()  
     }
 
-    fetchPosts = event => {
-        event.preventDefault()
-
+    const fetchPosts = () => {
         axios 
-            .get(`https://jsonplaceholder.typicode.com/posts/?id=${this.state.counter++}`)
+            .get(`https://jsonplaceholder.typicode.com/posts/?id=${counter}`)
             .then((result) => {
                 let post = result.data.map((item) => {
                     return {title: item.title, id: Date.now().toString()}
                 });
-                this.props.fetchPosts(post)
+                setCounter(counter + 1)
+                props.fetchPosts(post)
             })
     }
 
-    render() {
         return (
             <div className="top-panel">
                 <div className="form-panel">
-                    <form onSubmit={this.addPost}>
+                    <form onSubmit={addPost}>
                     <input 
                     type="text"
                     id="input"
+                    autoFocus="true"
                     />
                     </form>
                 </div>
                 <div className="button-panel">
-                <button className="button" onClick={this.addPost}>Add</button>
-                <button className="button" onClick={this.fetchPosts}>Fetch</button>
-                <button className="button" onClick={this.removePost}>Remove All</button>
+                <button className="button" onClick={addPost}>Add</button>
+                <button className="button" onClick={fetchPosts}>Fetch</button>
+                <button className="button" onClick={removePost}>Remove All</button>
                 </div>       
             </div>
         );
     }
-}
 
 const mapDispatchToProps = {
     createPost,
@@ -80,4 +68,3 @@ const mapDispatchToProps = {
 }
 
 export default connect(null, mapDispatchToProps) (TopPanel)
-
