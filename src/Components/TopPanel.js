@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useRef, useState } from 'react'
 import './styles.css'
 import { createPost, removePost , fetchPosts} from '../Redux/Actions'
 import { connect } from 'react-redux';
@@ -7,17 +7,18 @@ import axios from 'axios';
 
 const TopPanel = (props) => {
     const [counter, setCounter] = useState(1)
+    const inputRef = useRef(null)
 
     const addPost = () => {
-        const input = document.querySelector('#input')
+        const title = inputRef.current.value;
 
-        if(input.value) {
+        if(title) {
             const newPost = {
-                title: input.value, id: Date.now().toString()
+                title: title, id: Date.now().toString()
             }
             props.createPost(newPost)  
 
-            input.value = ''
+            inputRef.current.value = ''
         } else {
             alert("Post cannot be empty!!!")
         }
@@ -44,8 +45,8 @@ const TopPanel = (props) => {
                 <div className="form-panel">
                     <form onSubmit={addPost}>
                     <input 
+                    ref={inputRef}
                     type="text"
-                    id="input"
                     autoFocus={true}
                     />
                     </form>
