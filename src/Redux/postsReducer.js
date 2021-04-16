@@ -3,7 +3,7 @@ import {createPostReducer, fetchPosts, removeAllPosts} from './Reducers'
 
 export const initialState = {
     posts: [],
-    fetchedPosts: []
+    fetchedPosts: [],
 }
 
 export const postsReducer = (state = initialState, action) => {
@@ -13,7 +13,7 @@ export const postsReducer = (state = initialState, action) => {
         case REMOVE_POST:
         return removeAllPosts()
         case FETCH_POSTS:
-        return fetchPosts(state)
+        return fetchPosts(state, action.payload)
         default: return state
     }
 }

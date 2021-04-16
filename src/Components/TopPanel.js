@@ -2,13 +2,16 @@ import React from 'react'
 import './styles.css'
 import { createPost, removePost , fetchPosts} from '../Redux/Actions'
 import { connect } from 'react-redux';
+import axios from 'axios';
+
 
 class TopPanel extends React.Component {
     constructor(props) {
         super(props)
 
         this.state = {
-            title: ''
+            title: '',
+            counter: 1,
         }
       }
 
@@ -37,10 +40,18 @@ class TopPanel extends React.Component {
     }
 
     fetchPosts = event => {
-        this.props.fetchPosts()
+        event.preventDefault()
+
+        axios 
+            .get(`https://jsonplaceholder.typicode.com/posts/?id=${this.state.counter++}`)
+            .then((result) => {
+                let post = result.data.map((item) => {
+                    return {title: item.title, id: Date.now().toString()}
+                });
+                this.props.fetchPosts(post)
+            })
     }
 
-    
     render() {
         return (
             <div className="top-panel">
