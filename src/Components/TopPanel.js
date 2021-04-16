@@ -34,7 +34,7 @@ const TopPanel = (props) => {
                 let post = result.data.map((item) => {
                     return {title: item.title, id: Date.now().toString()}
                 });
-                setCounter(counter + 1)
+                setCounter(prev => prev + 1)
                 props.fetchPosts(post)
             })
     }
