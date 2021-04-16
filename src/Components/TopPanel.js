@@ -10,7 +10,7 @@ const TopPanel = (props) => {
 
     const addPost = () => {
         const input = document.querySelector('#input')
-        
+
         if(input.value) {
             const newPost = {
                 title: input.value, id: Date.now().toString()
@@ -46,7 +46,7 @@ const TopPanel = (props) => {
                     <input 
                     type="text"
                     id="input"
-                    autoFocus="true"
+                    autoFocus={true}
                     />
                     </form>
                 </div>
