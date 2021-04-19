@@ -17,8 +17,7 @@ const TopPanel = (props) => {
                 title: title, id: Date.now().toString()
             }
             props.createPost(newPost)  
-
-            inputRef.current.value = ''
+        
         } else {
             alert("Post cannot be empty!!!")
         }
@@ -35,7 +34,7 @@ const TopPanel = (props) => {
                 let post = result.data.map((item) => {
                     return {title: item.title, id: Date.now().toString()}
                 });
-                setCounter(prev => prev + 1)
+                setCounter(prev => ++prev)
                 props.fetchPosts(post)
             })
     }
