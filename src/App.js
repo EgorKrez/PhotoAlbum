@@ -7,7 +7,7 @@ import SecondPage from './Components/SecondPage';
 import TopPanel from './Components/TopPanel';
 
 
-function App() {
+const App = () => {
   return (
     <div>
       <Navbar />
