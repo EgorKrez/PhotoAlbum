@@ -7,8 +7,5 @@ export const removeAllPosts = () => {
 }
 
 export const fetchPosts = (state, payload) => {
-    payload.map((item) => {
-        return item;
-    })
     return { ...state, posts: state.posts.concat(...payload)}
 }
