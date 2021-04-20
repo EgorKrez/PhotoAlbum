@@ -2,10 +2,10 @@ export const createPostReducer = (state, payload) => {
     return { ...state, posts: state.posts.concat([payload])}
 }
 
-export const removeAllPosts = () => {
+export const removeAllPostsReducer = () => {
     return { posts: [] } 
 }
 
-export const fetchPosts = (state, payload) => {
+export const fetchPostsReducer = (state, payload) => {
     return { ...state, posts: state.posts.concat(...payload)}
 }
