@@ -1,26 +1,22 @@
-import React from 'react'
-import { Switch, Route } from 'react-router';
-import { BrowserRouter as Router } from "react-router-dom";
-import FirstPage from './Components/FirstPage';
-import Navbar from './Components/Navbar';
-import SecondPage from './Components/SecondPage';
-import TopPanel from './Components/TopPanel';
-
+import React from "react";
+//import { Switch, Route } from "react-router";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import FirstPage from "./components/FirstPage";
+import Navbar from "./components/Navbar";
+import SecondPage from "./components/SecondPage";
+import TopPanel from "./components/topPanel";
 
 const App = () => {
   return (
-    <div>
+    <Router>
       <Navbar />
       <TopPanel />
-      <Router>
-        <Switch>
-          <Route exact path="/" component={FirstPage}/>
-          <Route path="/second" component={SecondPage}/>
-        </Switch>
-      </Router>
-      
-    </div>
+      <Switch>
+        <Route exact path="/" component={FirstPage} />
+        <Route path="/second" component={SecondPage} />
+      </Switch>
+    </Router>
   );
-}
+};
 
 export default App;

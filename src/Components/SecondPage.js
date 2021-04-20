@@ -1,8 +1,8 @@
-import React from 'react'
-import Page from './Page';
+import React from "react";
+import Page from "./Page";
 
 const SecondPage = () => {
-    return <Page title={"Second Page"}/>
-}
+  return <Page title={"Second Page"} />;
+};
 
-export default SecondPage
+export default SecondPage;

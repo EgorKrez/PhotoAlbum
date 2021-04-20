@@ -1,6 +1,6 @@
 import { createAction } from "redux-actions";
-import { CREATE_POST, REMOVE_POST,FETCH_POSTS } from "./Types";
+import { CREATE_POST, REMOVE_POST, FETCH_POSTS } from "./types";
 
-export const createPost = createAction(CREATE_POST)
-export const removePost = createAction(REMOVE_POST)
-export const fetchPosts = createAction(FETCH_POSTS)
+export const createPostAction = createAction(CREATE_POST);
+export const removePostAction = createAction(REMOVE_POST);
+export const fetchPostsAction = createAction(FETCH_POSTS);

@@ -1,16 +1,18 @@
-import React from 'react'
-import { BrowserRouter } from 'react-router-dom';
-import './styles.css'
+import React from "react";
+import { Link } from "react-router-dom";
+import "./styles.css";
 
 const Navbar = () => {
-    return (
-        <div className="navbar">
-            <BrowserRouter>
-          <a className="navbar-item-text" href="/">First Page</a>
-          <a className="navbar-item-text" href="/second">Second Page</a>
-            </BrowserRouter>
-        </div>
-    );
-}
+  return (
+    <div className="navbar">
+      <Link className="navbar-item-text" to="/">
+        First Page
+      </Link>
+      <Link className="navbar-item-text" to="/second">
+        Second Page
+      </Link>
+    </div>
+  );
+};
 
-export default Navbar
+export default Navbar;

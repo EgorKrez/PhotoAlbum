@@ -1,22 +1,25 @@
-import React from 'react'
-import { connect } from 'react-redux';
+import React from "react";
+import { useSelector } from "react-redux";
+import { postsSelector } from "../redux/selectors";
 
-const Page = ({syncPosts, title}) => {
-        return (
-            <div className="page-wrapper">
-                <div>{title}</div>
-                {syncPosts.length ? 
-                (<div><ul>{syncPosts.map(post => <div key={post.id}>{post.title}</div>) }</ul></div>) : 
-                (<div>You have no posts</div>)
-                }
-            </div>
-        );
-}
+const Page = ({ title }) => {
+  const syncPosts = useSelector(postsSelector);
+  return (
+    <div className="page-wrapper">
+      <div>{title}</div>
+      {syncPosts.length ? (
+        <div>
+          <ul>
+            {syncPosts.map((post) => (
+              <div key={post.id}>{post.title}</div>
+            ))}
+          </ul>
+        </div>
+      ) : (
+        <div>You have no posts</div>
+      )}
+    </div>
+  );
+};
 
-export const mapStateToProps = state => {
-    return {
-        syncPosts: state.posts.posts
-    }
-} 
-
-export default connect(mapStateToProps, null)(Page)
+export default Page;
