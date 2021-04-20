@@ -1,11 +1,12 @@
 import React from 'react'
+import { connect } from 'react-redux';
 
-const Page = ({posts, title}) => {
+const Page = ({syncPosts, title}) => {
         return (
             <div className="page-wrapper">
                 <div>{title}</div>
-                {posts.length ? 
-                (<div><ul>{posts.map(post => <div key={post.id}>{post.title}</div>) }</ul></div>) : 
+                {syncPosts.length ? 
+                (<div><ul>{syncPosts.map(post => <div key={post.id}>{post.title}</div>) }</ul></div>) : 
                 (<div>You have no posts</div>)
                 }
             </div>
@@ -18,4 +19,5 @@ export const mapStateToProps = state => {
     }
 } 
 
-export default Page
+export default connect(mapStateToProps, null)(Page)
+//export default Page

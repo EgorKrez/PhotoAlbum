@@ -1,9 +1,8 @@
 import React from 'react'
-import { connect } from 'react-redux';
-import Page, {mapStateToProps} from './Page'
+import Page from './Page'
 
-const FirstPage = ({syncPosts}) => {
-    return <Page posts={syncPosts} title={"First Page"}/>
+const FirstPage = () => {
+    return <Page title={"First Page"}/>
 }
 
-export default connect(mapStateToProps, null)(FirstPage)
+export default FirstPage
