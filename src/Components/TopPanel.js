@@ -22,7 +22,7 @@ const TopPanel = () => {
         id: Date.now().toString(),
       };
 
-      dispatch(createPostAction(newPost));
+      console.log(dispatch(createPostAction(newPost)));
     } else {
       alert("Post cannot be empty!!!");
     }
@@ -36,7 +36,7 @@ const TopPanel = () => {
           return { title: item.title, id: Date.now().toString() };
         });
         setCounter((prev) => ++prev);
-        dispatch(fetchPostsAction(post));
+        console.log(dispatch(fetchPostsAction(post)));
       });
   };
 
