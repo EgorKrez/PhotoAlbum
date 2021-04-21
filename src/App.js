@@ -1,10 +1,9 @@
 import React from "react";
-//import { Switch, Route } from "react-router";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import FirstPage from "./components/FirstPage";
 import Navbar from "./components/Navbar";
 import SecondPage from "./components/SecondPage";
-import TopPanel from "./components/topPanel";
+import TopPanel from "./components/TopPanel";
 
 const App = () => {
   return (

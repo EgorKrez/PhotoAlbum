@@ -22,7 +22,7 @@ const TopPanel = () => {
         id: Date.now().toString(),
       };
 
-      console.log(dispatch(createPostAction(newPost)));
+      dispatch(createPostAction(newPost));
     } else {
       alert("Post cannot be empty!!!");
     }
@@ -36,9 +36,13 @@ const TopPanel = () => {
           return { title: item.title, id: Date.now().toString() };
         });
         setCounter((prev) => ++prev);
-        console.log(dispatch(fetchPostsAction(post)));
+        dispatch(fetchPostsAction(post));
       });
   };
+
+  const removeAllPosts = () => {
+    dispatch(removePostAction())
+}
 
   return (
     <div className="top-panel">
@@ -48,13 +52,13 @@ const TopPanel = () => {
         </form>
       </div>
       <div className="button-panel">
-        <button className="button" onClick={() => dispatch(addPost())}>
+        <button className="button" onClick={() => addPost()}>
           Add
         </button>
-        <button className="button" onClick={() => dispatch(fetchPosts())}>
+        <button className="button" onClick={() => fetchPosts()}>
           Fetch
         </button>
-        <button className="button" onClick={() => dispatch(removePostAction())}>
+        <button className="button" onClick={() => removeAllPosts()}>
           Remove All
         </button>
       </div>

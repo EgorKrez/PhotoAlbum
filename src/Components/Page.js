@@ -7,7 +7,7 @@ const Page = ({ title }) => {
   return (
     <div className="page-wrapper">
       <div>{title}</div>
-      {syncPosts.length ? (
+      {syncPosts.length  ? (
         <div>
           <ul>
             {syncPosts.map((post) => (
